@@ -1,6 +1,0 @@
-{
-    "sketch": "bmp280_u8x8_dht20.ino",
-    "board": "arduino:avr:uno",
-    "port": "/dev/cu.usbserial-222140",
-    "output": "./build"
-}
