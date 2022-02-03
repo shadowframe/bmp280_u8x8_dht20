@@ -18,6 +18,7 @@ DHT dht(DHTTYPE);
 
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* reset=*/U8X8_PIN_NONE);
 BMP280 bmp280;
+  int LED = 6;
 
 void setup(void) {
   Serial.begin(9600);
@@ -33,6 +34,9 @@ void setup(void) {
 
   Wire.begin();
   dht.begin();
+
+  pinMode(LED, OUTPUT);
+  digitalWrite(LED, LOW);
 }
 
 void loop(void) {
@@ -67,6 +71,13 @@ void loop(void) {
     u8x8.println("Failed to get temprature and humidity value.");
   }
   Serial.println("serial test");
+
+  if (temp_hum_val[0] > 60.00) {
+    digitalWrite(LED, HIGH);
+  } else {
+    digitalWrite(LED, LOW);
+  }
+
   u8x8.refreshDisplay();
   delay(1000);
 }
