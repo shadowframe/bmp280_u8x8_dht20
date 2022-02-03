@@ -44,7 +44,7 @@ void loop(void) {
   float alti = bmp280.calcAltitude(pressure);
   u8x8.setFont(u8x8_font_chroma48medium8_r);
   u8x8.setCursor(0, 0);
-  u8x8.print("Temp: ");
+  u8x8.print("Tempi: ");
   u8x8.print(temp);
   u8x8.print(" C");
   u8x8.setCursor(0, 1);
